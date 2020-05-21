@@ -3,7 +3,7 @@
 #define stderr (__acrt_iob_func(2))
 
 #include "Renderer.h"
-
+#include "Element.h"
 
 #define _DimW 1024
 #define _DimH 768
@@ -16,6 +16,8 @@ void system_init() {
 	// Initialize SDL with video
 	
 	Renderer *Rendu = new Renderer(_DimW,_DimH);
+	Element* test = new Element(250, 250, 512, 320,"Hello.bmp");
+	Rendu->DrawOnScreen(test->Get_Rectangle(), test->Get_Image());
 	
 	SDL_Event event;	 // used to store any events from the OS
 	bool running = true; // used to determine if we're running the game
